@@ -33,7 +33,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'home',
+  name: 'UploadSite',
   data: function () {
     return {
       file: '',
@@ -43,9 +43,18 @@ export default Vue.extend({
   methods: {
     onChange() {
       this.file = this.$refs.file.files[0];
+      // Maximum allowed size in bytes
+      const maxAllowedSize = 10 * 1024 * 1024;
+      if (this.file.size > maxAllowedSize) {
+        this.file = '';
+        window.alert("Maximum file size exceeded!");
+        return;
+      }
+      this.$emit('file', this.file);
     },
     remove() {
       this.file = '';
+      this.$emit('file', null);
     },
     dragover(event) {
       event.preventDefault();

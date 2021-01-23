@@ -1,6 +1,5 @@
 import Vue from "vue";
 import App from './app/App.vue';
-import { router } from './app/app.router';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
@@ -23,7 +22,6 @@ export class AppModule {
 
     const options = {
       el: '#app',
-      router: router(),
       render: create => create(App)
     };
 

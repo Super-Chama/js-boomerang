@@ -14,6 +14,8 @@
     "start": "npm run serve"
   },
   "dependencies": {
+    "@ffmpeg/core": "^0.8.5",
+    "@ffmpeg/ffmpeg": "^0.9.7",
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",

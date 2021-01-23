@@ -3,6 +3,9 @@
   border-radius: 10px;
   width: 100%;
   max-width: 420px;
+  &_subtext {
+    margin-right: auto;
+  }
 }
 
 .droparea {
@@ -14,6 +17,7 @@
   border-radius: 5px;
   height: 150px;
   width: 250px;
+  margin-bottom: 10px;
   &_hint {
     font-size: get-font-size(m);
     text-align: center;
