@@ -13,7 +13,8 @@
 
 ## :wrench: Built With
 
-* [Vue.js](https://getbootstrap.com)
+* [Vue.js](https://vuejs.org)
+* [TypeScript](https://typescriptlang.org)
 * [SASS](https://sass-lang.com)
 * [FFMPEG.WASM](https://ffmpegwasm.github.io)
 * [ffmpeg](https://ffmpeg.org)
