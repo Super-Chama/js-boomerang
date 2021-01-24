@@ -16,7 +16,7 @@ deploy:
   # Directory where your generated files are located
   local_dir: public
   # Github security/auth token
-  github-token: $GITHUB_TOKEN
+  github-token: $TRAVIS_GITHUB_TOKEN
   # Incremental commit to keep old build/files from previous deployments
   keep-history: true
   # Git branch on which it should deploy (master, gh-pages, foo...)
