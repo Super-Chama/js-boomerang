@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <upload-site @file="fileHandler"></upload-site>
+    <upload-site :busy="loading" :error="error" @process="processVideo" @file="fileHandler"></upload-site>
     <video-preview :autoplay="false" :loop="false" title="Video Input" :source="inputSource"></video-preview>
     <video-preview :autoplay="true" :loop="true" title="Video Output" :source="outputSource"></video-preview>
   </div>
@@ -19,6 +19,8 @@ export default Vue.extend({
     return {
       worker: null,
       loading: true,
+      error: false,
+      fileSource: null,
       inputSource: null,
       outputSource: null
     };
@@ -31,20 +33,30 @@ export default Vue.extend({
 
   methods: {
     fileHandler(file) {
-      let self = this;
       if (file) {
+        this.fileSource = file;
         this.inputSource = URL.createObjectURL(file);
-        this.worker
-          .convertVideo(file)
-          .then((resolve) => {
-            self.outputSource = resolve;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
       } else {
+        this.fileSource = null;
         this.inputSource = null;
       }
+    },
+    processVideo() {
+      let self = this;
+      if (!this.fileSource) { return; }
+      this.loading = true;
+      this.worker
+        .convertVideo(this.fileSource)
+        .then((resolve) => {
+          self.outputSource = resolve;
+        })
+        .catch((error) => {
+          window.alert('Processing file failed! Try again.');
+          console.error(error);
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     }
   },
 
@@ -53,18 +65,13 @@ export default Vue.extend({
     this.worker = new Worker();
     this.worker
       .initiliaze()
-      .then((res) => {
-        self.loading = res;
+      .then(() => {
+        self.loading = false;
       })
       .catch((error) => {
-        window.alert('Something went wrong!');
+        self.error = true;
+        console.error(error);
       });
   }
 });
 </script>
-
-<!--<style lang="scss" scoped>
-.app {
-  color: get-color(basic, brighter);
-}
-</style> -->

@@ -2,20 +2,28 @@
   <b-container fluid>
     <b-row class="d-flex p-2 justify-content-center">
       <b-col class="d-flex flex-column px-2 py-1 frame justify-content-center align-items-center">
-        <h1>Boomerang.js</h1>
+        <h1>Boomerang.js<img width="60px" src="https://openmoji.org/data/color/svg/1FA83.svg" alt="boomerang"/></h1>
 
         <div class="filearea" v-if="file">
           <b-icon icon="file-earmark" animation="throb" font-scale="3"></b-icon>
           <span class="filearea_name">{{file.name}}</span>
 
-          <span class="filearea_actions">
-            <b-button variant="outline-success" class="mb-2">
-              <b-icon icon="arrow-repeat"></b-icon> Boomerang
+          <span v-if="!error" class="filearea_actions">
+            <b-button :disabled="busy" @click="process" variant="success" class="mb-2">
+              <template v-if="busy">
+                <b-spinner small type="grow"></b-spinner> Working...
+              </template>
+              <template v-else>
+                <b-icon icon="arrow-repeat"></b-icon> Boomerang It!
+              </template>
             </b-button>
 
-            <b-button @click="remove" variant="outline-danger" class="mb-2">
+            <b-button @click="remove" variant="danger" class="mb-2">
               <b-icon icon="x-circle"></b-icon> Remove
             </b-button>
+          </span>
+          <span v-else class="filearea_actions">
+            <p>Looks like your browser is not yet supported! :(</p>
           </span>
         </div>
 
@@ -34,6 +42,10 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'UploadSite',
+  props: {
+    busy: Boolean,
+    error: Boolean
+  },
   data: function () {
     return {
       file: '',
@@ -55,6 +67,9 @@ export default Vue.extend({
     remove() {
       this.file = '';
       this.$emit('file', null);
+    },
+    process() {
+      this.$emit('process', true);
     },
     dragover(event) {
       event.preventDefault();
