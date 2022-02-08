@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = () => {
   return {
-    publicPath: process.env.NODE_ENV === 'production' ? '/js-boomerang/' : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/' : '/js-boomerang/',
     lintOnSave: false,
     css: {
       loaderOptions: {
