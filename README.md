@@ -5,7 +5,10 @@
 <a><img src="https://img.shields.io/github/license/Super-Chama/js-boomerang?style=plastic" alt="Licence Badge"/></a>
 <a><img src="https://img.shields.io/github/forks/Super-Chama/js-boomerang?style=plastic" alt="Forks Badge"/></a>
 <a><img src="https://travis-ci.com/Super-Chama/js-boomerang.svg?branch=main" alt="CI Badge"/></a>
+  
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c88ca14f-4bfb-44ef-a1a4-b242833d149d/deploy-status)](https://app.netlify.com/sites/js-boomerang/deploys)
 </div>
+
 <br>
 <p align="center"><i>Wanna try out? Please visit our <a href="https://js-boomerang.netlify.app/">Website</a></i></p>
 <p align="center"><i>PS: Your data will never leave your PC. All the processing will be done within your browser. we promise! :dizzy:</i></p>
