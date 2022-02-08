@@ -23,12 +23,12 @@ module.exports = () => {
         keep_fnames: true
       };
       
-      config.devServer: {
+      config.devServer = {
         headers: {
           'Cross-Origin-Opener-Policy': 'same-origin',
           'Cross-Origin-Embedder-Policy': 'require-corp'
         }
-      }
+      };
 
       config.resolve.alias = { ...config.resolve.alias, ...alias };
       config.optimization.minimizer[0].options.terserOptions = {
