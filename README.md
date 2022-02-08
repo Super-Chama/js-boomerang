@@ -7,7 +7,7 @@
 <a><img src="https://travis-ci.com/Super-Chama/js-boomerang.svg?branch=main" alt="CI Badge"/></a>
 </div>
 <br>
-<p align="center"><i>Wanna try out? Please visit our <a href="https://super-chama.github.io/js-boomerang">Website</a></i></p>
+<p align="center"><i>Wanna try out? Please visit our <a href="https://js-boomerang.netlify.app/">Website</a></i></p>
 <p align="center"><i>PS: Your data will never leave your PC. All the processing will be done within your browser. we promise! :dizzy:</i></p>
 <br>
 
